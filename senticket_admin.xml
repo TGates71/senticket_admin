@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updateserver>
+	<latestversion>200</latestversion>
+	<downloadurl>http://zppy-repo.mach-hosting.com/repo/senticket_admin.zpp</downloadurl>
+	<desc>Admin module for SenTicket. (Auto installed with SenTicket.) Don't forget to set the module's permissions!</desc>
+	<updatedesc>Major rebuild of entire module.</updatedesc>
+	<authorname>Diablo925, TGates</authorname>
+	<authoremail>Carsten@alio.dk</authoremail>
+	<authorurl>http://forums.sentora.org/showthread.php?tid=4037</authorurl>
+	<ostype>all</ostype>
+</updateserver>

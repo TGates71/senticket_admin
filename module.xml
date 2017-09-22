@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <name>SenTicket Admin</name>
+    <version>200</version>
+    <defaultcat>Reseller</defaultcat>
+    <desc>Admin module for SenTicket.</desc>
+    <authorname>Diablo925, TGates</authorname>
+    <authoremail>Carsten@alio.dk</authoremail>
+    <authorurl>http://forums.sentora.org/showthread.php?tid=4037</authorurl>
+    <updateurl>http://zppy-repo.mach-hosting.com/repo/senticket_admin.xml</updateurl>
+</module>

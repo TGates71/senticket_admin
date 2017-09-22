@@ -1,0 +1,121 @@
+<!--
+// SenTicket Admin for Sentora CP
+// Rebuilt By       : TGates
+// Original Author  : Diablo925
+-->
+<div class="zmodule_content panel" id="zmodule_header_<@ ModuleName @>">
+    <div class="panel-heading">
+        <img src="<@ ModuleIcon @>" width="35" height="35" border="0" alt="<@ ModuleName @>">
+
+        <div class="zmodule_title">
+            <@ ModuleName @>
+        </div>
+
+        <div class="zmodule_desc" id="zmodule_desc_<@ ModuleName @>"><@ ModuleDesc @></div>
+
+    </div>
+	
+	<@ Result @>
+	
+	<: Search tickets. (* wildcard allowed) :>
+		<p></p>
+		<table class="table">
+			<tr>
+				<td><form action="./?module=simple_support_ticket_admin&action=search" method="post"><input type="text" name="insearch" data-provide="typeahead" placeholder="Search" autocomplete="off"></td>
+				<td><button type="submit" class="btn-primary btn glyphicon glyphicon-search" aria-hidden="true" name="inSearchButton"></button><@ CSFR_Tag @>
+				</form></td>
+			</tr>
+		</table>
+
+	<div class="zgrid_wrapper">
+		
+		<% if isSearch %>
+			<table class="table table-striped">
+				<tr>
+					<th><: Ticket number :></th>
+					<th><: Subject :></th>
+					<th><: Domain :></th>
+					<th><: Status :></th>
+					<th> </th>
+				</tr>
+			<% loop TicketListSearch %>
+				<tr>
+					<td><& ticketnumber &></td>
+					<td><& ticketsubject &></td>
+					<td><& ticketdomain &></td>
+					<td><& ticketstatus &></td>
+					<td><form action="./?module=simple_support_ticket_admin&action=read" method="post"><input type="hidden" value="<& ticketnumber &>" name="innumber"><button class="button-loader btn btn-primary" type="submit" name="inRead" id="inRead" value="inRead"><: View :></button><@ CSFR_Tag @></form></td>
+				</tr>
+			<% endloop %>
+			</table>
+		<% endif %>
+		
+		<table class="table table-striped">
+			<tr>
+				<th><: Ticket number :></th>
+				<th><: Subject :></th>
+				<th><: Domain :></th>
+				<th><: Status :></th>
+				<th> </th>
+			</tr>
+		<% loop TicketList %>
+			<tr>
+				<td><& ticketnumber &></td>
+				<td><& ticketsubject &></td>
+				<td><& ticketdomain &></td>
+				<td><& ticketstatus &></td>
+				<td><form action="./?module=simple_support_ticket_admin&action=read" method="post"><input type="hidden" value="<& ticketnumber &>" name="innumber"><button class="button-loader btn btn-primary" type="submit" name="inRead" id="inRead" value="inRead"><: View :></button></form></td>
+			</tr>
+		<% endloop %>
+		</table>
+				
+		<% if isread %>
+		<h3><: View Ticket :>:</h3>
+		<form action="./?module=simple_support_ticket_admin&action=send" method="post">
+            <table class="table table-striped">
+			<% loop Ticket %>
+				<tr>
+                    <th><: Ticket number :>:</th>
+                    <td>
+                        <& Ticket_number &>
+                    </td>
+                </tr>
+				<tr>
+                    <th><: Domain :>:</th>
+                    <td>
+                        <& Ticket_domain &>
+                    </td>
+                </tr>
+				<tr>
+					<th><: Subject :>:</th>
+					<td><& Ticket_subject &></td>
+                <tr>
+                    <th><: Messages :>:</th>
+                    <td><& Ticket_msg &></td>
+                </tr>
+				<tr>
+                    <th><: New Reply :>:</th>
+                    <td><textarea name="inMessage" id="inMessage" rows="3" cols="80" /></textarea></td>
+                </tr>
+				<tr>
+					<th><: Status :></th>
+					<td><select name="inStatus" id="inStatus">
+					<@ Ticketstatus @>
+                    </select></td>
+				</tr>
+				<tr>
+                    <th colspan="2" align="right">
+					<input type="hidden" value="<& Ticket_number &>" name="innumber">
+                        <button class="button-loader add-row btn btn-primary" type="submit" name="inSave" id="button"><: Send :></button>
+                    </th>
+                </tr>
+				<% endloop %>
+            </table>
+        </form>
+		<% endif %>
+		
+		</div>
+	<div>
+		<@ Copyright @>
+	</div>
+</div>
