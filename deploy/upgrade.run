@@ -15,7 +15,7 @@ require_once('dryden/fs/director.class.php');
 require_once('inc/dbc.inc.php');
 
 
-UpgradeModule('200', 'simple_support_ticket_admin');
+UpgradeModule('200', 'senticket_admin');
 
 function UpgradeModule($newversion, $module){
     global $zdbh;
